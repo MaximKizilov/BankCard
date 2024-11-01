@@ -33,7 +33,7 @@ public class CreditCard extends BankCard {
             return false;
         }
         double difference = creditLimit - creditBalance;
-        if (difference > amount ) {
+        if (difference >= amount ) {
             creditBalance += amount;
             return true;
         } else if (difference !=0.0) {
