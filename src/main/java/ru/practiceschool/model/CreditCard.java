@@ -47,7 +47,7 @@ public class CreditCard extends BankCard {
     @Override
     public String getBalance() {
         NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
-        return "Собственные средства: " + nf.format(String.format("%.2f", balance))  + "\n" +
-                "Кредитные средства: " + nf.format(String.format("%.2f", creditBalance));
+        return "Собственные средства: " + nf.format(balance)  + "\n" +
+                "Кредитные средства: " + nf.format(creditBalance);
     }
 }
