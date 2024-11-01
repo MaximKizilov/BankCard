@@ -23,7 +23,6 @@ abstract class BankCard {
     }
 
 
-
     protected abstract boolean pay(double amount);
 
 }
