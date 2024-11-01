@@ -1,6 +1,8 @@
 package ru.practiceschool.model;
 
-import java.util.List;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public abstract class BankCard {
     protected double balance;
@@ -12,7 +14,8 @@ public abstract class BankCard {
     }
 
     public String getBalance() {
-        return "Баланс по карте: " + String.format("%.2f", balance);
+        NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
+        return "Баланс по карте: " + nf.format(String.format("%.2f", balance)) ;
     }
 
     public abstract boolean pay(double amount);
