@@ -6,7 +6,6 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class DebitCardBonus extends DebitCard {
-
     public DebitCardBonus(double balance, double bonusPoints) {
         super(balance, bonusPoints);
     }

@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class CreditCard extends BankCard {
     private final double creditLimit;
-    private double creditBalance;
+    protected double creditBalance;
 
     public CreditCard(double balance, double creditLimit) {
         super(balance);

@@ -2,7 +2,7 @@ package ru.practiceschool.model;
 
 
 public class DebitCard extends BankCard {
-    protected static final double BONUSRATE = 0.01;
+    protected double BONUSRATE = 0.01;
     protected double bonusPoints;
 
     public DebitCard(double balance) {
@@ -12,6 +12,7 @@ public class DebitCard extends BankCard {
     public DebitCard(double balance, double bonusPoints) {
         super(balance);
         this.bonusPoints = bonusPoints;
+        this.BONUSRATE = 0;
     }
 // дефолтный метод
     @Override
@@ -21,6 +22,7 @@ public class DebitCard extends BankCard {
         } else balance -= amount;
         return true;
     }
+
 // перегрузка для бонусной карты
     public boolean pay(double amount, double bonusAmount) {
         if (amount > balance || amount <= 0) {
