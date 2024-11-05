@@ -5,7 +5,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class CreditCard extends BankCard {
-    protected double creditLimit;
+    private final double creditLimit;
     private double creditBalance;
 
     public CreditCard(double balance, double creditLimit) {
@@ -45,7 +45,7 @@ public class CreditCard extends BankCard {
     }
 
     @Override
-    public String getBalance() {
+    public String getAvailableCapital() {
         NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
         return "Собственные средства: " + nf.format(balance)  + "\n" +
                 "Кредитные средства: " + nf.format(creditBalance);

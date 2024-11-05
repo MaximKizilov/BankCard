@@ -1,7 +1,8 @@
 package ru.practiceschool;
 
-import com.sun.net.httpserver.HttpServer;
 import ru.practiceschool.model.CreditCard;
+import ru.practiceschool.model.DebitCard;
+import ru.practiceschool.specification.DebitCardBonus;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,6 +10,12 @@ public class Main {
         creditCard.topUp(200);
         creditCard.pay(6500);
         creditCard.topUp(400);
-        System.out.println(creditCard.getBalance());
+
+
+        DebitCard debitCard = new DebitCardBonus(1000.00, 100.00);
+        debitCard.topUp(5000);
+        debitCard.pay(100);
+        debitCard.pay(5000, 100);
+        System.out.println(debitCard.getAvailableCapital());
     }
 }

@@ -18,7 +18,7 @@ abstract class BankCard {
         return "Баланс по карте: " + nf.format(String.format("%.2f", balance)) ;
     }
 
-    protected String getAvailableCapital(){
+    public String getAvailableCapital(){
         return getBalance();
     }
 
