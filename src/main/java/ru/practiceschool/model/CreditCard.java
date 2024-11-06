@@ -33,21 +33,21 @@ public class CreditCard extends BankCard {
             return false;
         }
         double difference = creditLimit - creditBalance;
-        if (difference >= amount ) {
+        if (difference >= amount) {
             creditBalance += amount;
             return true;
-        } else if (difference !=0.0) {
+        } else if (difference != 0.0) {
             creditBalance += difference;
             balance = amount - difference;
             return true;
-        }else balance += amount;
+        } else balance += amount;
         return true;
     }
 
     @Override
     public String getAvailableCapital() {
         NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
-        return "Собственные средства: " + nf.format(balance)  + "\n" +
+        return "Собственные средства: " + nf.format(balance) + "\n" +
                 "Кредитные средства: " + nf.format(creditBalance);
     }
 }

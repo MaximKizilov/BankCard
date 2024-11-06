@@ -13,12 +13,12 @@ abstract class BankCard {
         }
     }
 
-    protected String getBalance() {
+    public String getBalance() {
         NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
-        return "Баланс по карте: " + nf.format(String.format("%.2f", balance)) ;
+        return "Баланс по карте: " + nf.format(String.format("%.2f", balance));
     }
 
-    public String getAvailableCapital(){
+    public String getAvailableCapital() {
         return getBalance();
     }
 
