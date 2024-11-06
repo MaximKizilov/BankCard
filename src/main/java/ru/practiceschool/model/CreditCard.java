@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class CreditCard extends BankCard {
     private final double creditLimit;
-    protected double creditBalance;
+    private double creditBalance;
 
     public CreditCard(double balance, double creditLimit) {
         super(balance);
@@ -17,14 +17,14 @@ public class CreditCard extends BankCard {
 
     @Override
     public boolean pay(double amount) {
-        if (amount > creditBalance + balance || amount <= 0) {
+        if (amount > creditBalance + getBalance() || amount <= 0) {
             return false;
-        } else if (balance < amount) {
-            double difference = amount - balance;
-            balance = 0;
+        } else if (getBalance() < amount) {
+            double difference = amount - getBalance();
+            setBalance(0);
             creditBalance -= difference;
             return true;
-        } else balance -= amount;
+        } setBalance(getBalance() - amount);
         return true;
     }
 
@@ -38,16 +38,24 @@ public class CreditCard extends BankCard {
             return true;
         } else if (difference != 0.0) {
             creditBalance += difference;
-            balance = amount - difference;
+            setBalance(getBalance() + (amount - difference));
             return true;
-        } else balance += amount;
+        } else setBalance(getBalance() + amount);
         return true;
     }
 
     @Override
     public String getAvailableCapital() {
         NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
-        return "Собственные средства: " + nf.format(balance) + "\n" +
+        return "Собственные средства: " + nf.format(getBalance()) + "\n" +
                 "Кредитные средства: " + nf.format(creditBalance);
+    }
+
+    public double getCreditBalance() {
+        return creditBalance;
+    }
+
+    public void setCreditBalance(double creditBalance) {
+        this.creditBalance = creditBalance;
     }
 }

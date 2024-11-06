@@ -14,18 +14,18 @@ public class Main {
         debitCard.pay(100);
         debitCard.pay(5000.00, 100.00);
         System.out.println(debitCard.getAvailableCapital());
-//
-//        CreditCard creditCard = new CreditCardCashback(5000.00, 7000.00);
-//        creditCard.pay(5000.00);
-//        creditCard.topUp(2000.00);
-//        creditCard.pay(5000.00);
+
+        CreditCard creditCard = new CreditCardCashback(5000.00, 7000.00);
+        creditCard.pay(5000.00);
+        creditCard.topUp(2000.00);
+        creditCard.pay(5000.00);
 
 
 
 
         DebitCard debitCard2 = new DebitCardAccumulate(100.00);
         debitCard2.topUp(1000.00);
-//        System.out.println(debitCard2.getBalance());
+        System.out.println(debitCard2.getBalance());
 
     }
 }

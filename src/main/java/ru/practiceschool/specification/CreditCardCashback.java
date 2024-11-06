@@ -12,19 +12,19 @@ public class CreditCardCashback extends CreditCard {
     public boolean pay(double amount) {
             if (amount <= 0) {
                 return false;
-            } else if (amount > creditBalance + balance) {
+            } else if (amount > getCreditBalance() + getBalance()) {
                 return false;
-            } else if (balance < amount) {
-                double difference = amount - balance;
-                if (balance >= 5000.00) {
-                    balance = balance * 0.05;
+            } else if (getBalance() < amount) {
+                double difference = amount -  getBalance();
+                if (getBalance() >= 5000.00) {
+                    setBalance(getBalance() * 0.05);
                 } else {
-                    balance = 0;
+                    setBalance(0);
                 }
-                    creditBalance -= difference;
+                   setCreditBalance(getCreditBalance() - difference);
                     return true;
                 } else {
-                balance = amount>=5000.00? balance - (amount * 0.95) :balance-amount;
+                setBalance(amount>=5000.00? getBalance() - (amount * 0.95):getBalance()-amount);
             return true;
             }
         }

@@ -10,9 +10,9 @@ public class DebitCard extends BankCard {
     // дефолтный метод
     @Override
     public boolean pay(double amount) {
-        if (amount > balance || amount <= 0) {
+        if (amount > getBalance() || amount <= 0) {
             return false;
-        } else balance -= amount;
+        } else setBalance(getBalance()-amount);
         return true;
     }
 
@@ -20,7 +20,7 @@ public class DebitCard extends BankCard {
     public boolean topUp(double amount) {
         if (amount <= 0) {
             return false;
-        } else balance += amount;
+        } else setBalance(getBalance()+amount);
         return true;
     }
 

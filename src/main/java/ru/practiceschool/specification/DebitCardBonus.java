@@ -20,15 +20,15 @@ public class DebitCardBonus extends DebitCard {
 
     @Override
     public boolean pay(double amount) {
-        if (amount > balance || amount <= 0) {
+        if (amount > getBalance() || amount <= 0) {
             return false;
-        } else balance -= amount;
+        } else setBalance(getBalance()-amount);
         bonusPoints += amount*BONUSRATE;
         return true;
     }
-    // перегрузка для бонусной карты
+    @Override
     public boolean pay(double amount, double bonusAmount) {
-        if (amount > balance || amount <= 0) {
+        if (amount > getBalance() || amount <= 0) {
             return false;
         } else if (bonusAmount > bonusPoints) {
             return false;
@@ -36,7 +36,7 @@ public class DebitCardBonus extends DebitCard {
             if (bonusAmount <= amount * 0.3) { // Допустим по правилам банка бонусами можно оплачивать до 30% от стоимости включительно
                 bonusPoints -= bonusAmount;
                 double amountMinusBonus = amount - bonusAmount;
-                balance -= amountMinusBonus;
+                setBalance(getBalance()-amountMinusBonus);
                 bonusPoints += amountMinusBonus * BONUSRATE;
                 return true;
             } else
@@ -47,7 +47,7 @@ public class DebitCardBonus extends DebitCard {
     @Override
     public String getAvailableCapital() {
         NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
-        return "Собственные средства: " + nf.format(balance)  + "\n" +
+        return "Собственные средства: " + nf.format(getBalance())  + "\n" +
                 "Бонусы на здоровье: " + nf.format(bonusPoints);
     }
 }
