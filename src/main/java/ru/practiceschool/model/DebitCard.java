@@ -24,4 +24,7 @@ public class DebitCard extends BankCard {
         return true;
     }
 
+    public boolean pay(double v, double v1) {
+        return false;
+    }
 }

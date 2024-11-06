@@ -13,6 +13,11 @@ public class DebitCardBonus extends DebitCard {
         super(balance);
     }
 
+    public DebitCardBonus(double balance, double bonusPoints) {
+        super(balance);
+        this.bonusPoints = bonusPoints;
+    }
+
     @Override
     public boolean pay(double amount) {
         if (amount > balance || amount <= 0) {

@@ -13,7 +13,7 @@ abstract class BankCard {
         }
     }
 
-    public String getBalance() {
+    protected String getBalance() {
         NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
         return "Баланс по карте: " + nf.format(String.format("%.2f", balance));
     }

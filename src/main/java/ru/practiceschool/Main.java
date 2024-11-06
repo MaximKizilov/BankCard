@@ -15,10 +15,10 @@ public class Main {
         debitCard.pay(5000.00, 100.00);
         System.out.println(debitCard.getAvailableCapital());
 //
-        CreditCard creditCard = new CreditCardCashback(5000.00, 7000.00);
-        creditCard.pay(5000.00);
-        creditCard.topUp(2000.00);
-        creditCard.pay(5000.00);
+//        CreditCard creditCard = new CreditCardCashback(5000.00, 7000.00);
+//        creditCard.pay(5000.00);
+//        creditCard.topUp(2000.00);
+//        creditCard.pay(5000.00);
 
 
 
