@@ -5,25 +5,25 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 abstract class BankCard {
+    public NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
     private double balance;
 
-    public BankCard(double balance) {
+    protected BankCard(double balance) {
         if (balance < 0) {
             throw new IllegalArgumentException("Баланс должен быть положительным.");
         }
         this.balance = balance;
     }
 
-    public double getBalance() {
+    protected double getBalance() {
         return balance;
     }
 
     public String getAvailableCapital() {
-        NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
-        return "Баланс по карте: " + nf.format(getBalance());
+        return "Собственные средства: " + nf.format(getBalance());
     }
 
-    public void setBalance(double balance) {
+    protected void setBalance(double balance) {
         this.balance = balance;
     }
 

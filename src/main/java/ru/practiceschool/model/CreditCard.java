@@ -1,9 +1,6 @@
 package ru.practiceschool.model;
 
 
-import java.text.NumberFormat;
-import java.util.Locale;
-
 public class CreditCard extends BankCard {
     private final double creditLimit;
     private double creditBalance;
@@ -46,9 +43,8 @@ public class CreditCard extends BankCard {
 
     @Override
     public String getAvailableCapital() {
-        NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
-        return "Собственные средства: " + nf.format(getBalance()) + "\n" +
-                "Кредитные средства: " + nf.format(creditBalance);
+        return super.getAvailableCapital() + "\n" +
+                "Бонусы на здоровье: " + nf.format(getCreditBalance());
     }
 
     public double getCreditBalance() {

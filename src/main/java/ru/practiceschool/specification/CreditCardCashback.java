@@ -4,6 +4,7 @@ import ru.practiceschool.model.CreditCard;
 
 
 public class CreditCardCashback extends CreditCard {
+    private static final double CASHBACK = 0.05;
     public CreditCardCashback(double balance, double creditLimit) {
         super(balance, creditLimit);
     }
@@ -17,14 +18,14 @@ public class CreditCardCashback extends CreditCard {
             } else if (getBalance() < amount) {
                 double difference = amount -  getBalance();
                 if (getBalance() >= 5000.00) {
-                    setBalance(getBalance() * 0.05);
+                    setBalance(getBalance() * CASHBACK);
                 } else {
                     setBalance(0);
                 }
                    setCreditBalance(getCreditBalance() - difference);
                     return true;
                 } else {
-                setBalance(amount>=5000.00? getBalance() - (amount * 0.95):getBalance()-amount);
+                setBalance(amount>=5000.00? getBalance() - (amount * (1.00 - CASHBACK)):getBalance()-amount);
             return true;
             }
         }

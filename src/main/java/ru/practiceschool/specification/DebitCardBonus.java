@@ -2,8 +2,6 @@ package ru.practiceschool.specification;
 
 import ru.practiceschool.model.DebitCard;
 
-import java.text.NumberFormat;
-import java.util.Locale;
 
 public class DebitCardBonus extends DebitCard {
     private static final double BONUSRATE = 0.01;
@@ -46,8 +44,7 @@ public class DebitCardBonus extends DebitCard {
 
     @Override
     public String getAvailableCapital() {
-        NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("ru", "RU"));
-        return "Собственные средства: " + nf.format(getBalance())  + "\n" +
-                "Бонусы на здоровье: " + nf.format(bonusPoints);
+        return super.getAvailableCapital() + "\n"
+         +  "Бонусы на здоровье: " + nf.format(bonusPoints);
     }
 }
