@@ -21,7 +21,8 @@ public class CreditCard extends BankCard {
             setBalance(0);
             creditBalance -= difference;
             return true;
-        } setBalance(getBalance() - amount);
+        }
+        setBalance(getBalance() - amount);
         return true;
     }
 
