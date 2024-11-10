@@ -44,7 +44,7 @@ public class CreditCard extends BankCard {
     @Override
     public String getAvailableCapital() {
         return super.getAvailableCapital() + "\n" +
-                "Бонусы на здоровье: " + nf.format(getCreditBalance());
+                "Кредитные средства: " + nf.format(getCreditBalance());
     }
 
     public double getCreditBalance() {
